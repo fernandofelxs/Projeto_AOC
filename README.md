@@ -28,4 +28,8 @@ Asset Pack utilizado: https://ivoryred.itch.io/pico-8-character-sprite <br />
 
 
 Para construir o arquivo boxshv, use o comando: <br /> 
+```
 nasm boxshv.asm -o boxshv.com
+```
+
+Para entrar em tela cheia no DOSBox, aperte Alt+Enter
