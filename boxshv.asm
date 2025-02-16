@@ -5,16 +5,22 @@ Start:
         CALL	InstallKB
 		CALL	InitVideo
 
-        xor si, si
-        CALL drawbackground
-
         mov ax, 20
         mov cx, 20
-        mov bx, playersprite
-        CALL    drawbox
+        mov [XPosition], ax
+        mov [YPosition], cx
 
 .gameLoop:	
         CALL	WaitFrame
+
+        xor si, si
+        CALL    drawbackground
+
+        mov ax, [XPosition]
+        mov cx, [YPosition]
+        mov bx, playersprite
+        CALL    drawbox
+
 		CMP	BYTE [Quit], 1
 		JNE	.gameLoop			; loop if counter > 0
 

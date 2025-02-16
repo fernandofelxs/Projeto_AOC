@@ -1,5 +1,7 @@
 OldKBHandler:	DW	0
 OldKBSeg:	DW	0
+XPosition: DW 0
+YPosition: DW 0
 
 InstallKB:	
         PUSH	ES
@@ -31,14 +33,48 @@ RestoreKB:
 		RET
 
 KBHandler:	
+		PUSH 	BX
         PUSH	AX
 		IN	AL, 0x60			; get key event
 		CMP	AL, 0x01			; ESC pressed?
 		JNE	.done
 		MOV	[Quit], AL
 
-.done:		
+.done:	
+		CMP AL, 0x20			; D key pressed?
+		JNE t1
+		MOV BX, [XPosition]
+		CMP BX, 312
+		JE EndHandling			; Reached end of screen
+		INC BX
+		MOV [XPosition], BX		
+	t1:	
+		CMP AL, 0x1E			; A key pressed?
+		JNE t2
+		MOV BX, [XPosition]
+		CMP BX, 1
+		JE EndHandling		
+		DEC BX
+		MOV [XPosition], BX
+	t2:
+		CMP AL, 0x11			; W key pressed?
+		JNE t3
+		MOV BX, [YPosition]
+		CMP BX, 1
+		JE EndHandling		
+		DEC BX
+		MOV [YPosition], BX
+	t3:
+		CMP AL, 0x1F			; S key pressed?
+		JNE EndHandling
+		MOV BX, [YPosition]
+		CMP BX, 192
+		JE EndHandling
+		INC BX
+		MOV [YPosition], BX
+	EndHandling:
         MOV	AL, 0x20			; ACK
 		OUT	0x20, AL			; send ACK
 		POP	AX
+		POP BX
 		IRET

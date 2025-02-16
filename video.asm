@@ -41,24 +41,22 @@ RestoreVideo:	; return to text mode 0x03
 		INT	0x10
 		RET
 
-DrawPixel:	
-        MOV	 BYTE [ES:0x1234], 0x06
-		RET
+;Example of how to draw a pixel to a position in the framebuffer
+;DrawPixel:	
+;        MOV	 BYTE [ES:0x1234], 0x06 ; color brown
+;		 RET
 
-;This is thought to pick up from the registers the address of what we need to draw
-;Draw it, and return. The params are:
+;Parameters:
 ;- AX -> X position
 ;- CX -> Y position
 ;- BX -> base memory address of the bitmap
 drawbox:
 		push    ax              ;Save the X value for later
 		mov     ax, cx          ;Prepare for multiplications
-		mov     dx, 320 * 8     ;The box is 8x8, the screen width is 320
+		mov     dx, 320         ;The box is 8x8, the screen width is 320
 		mul     dx
 		mov     cx, ax          ;Retrieve the line into CX
         pop     ax              ;Retrieve the X value into AX register
-		mov     dx, 8			;The box is 8x8, each box is 8 pixel wide
-		mul     dx          	;We multiply the X value too for the 8x8
 		add     cx, ax          ;Now we've put in AX the pointer value 
 		mov     si, cx          ;Set SI to the correct address we'll draw
 		mov     cx, 00
@@ -91,4 +89,3 @@ drawbackground:
         cmp     si, 0fa00h ; 0fa00h = 64000
         jne     drawbackground
         ret
-
