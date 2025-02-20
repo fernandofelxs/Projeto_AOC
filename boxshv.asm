@@ -5,8 +5,8 @@ Start:
         CALL	InstallKB
 		CALL	InitVideo
 
-        mov     ax, 20
-        mov     cx, 20
+        mov     ax, 156
+        mov     cx, 180
         mov     [XPosition], ax
         mov     [YPosition], cx
 

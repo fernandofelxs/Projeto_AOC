@@ -36,42 +36,30 @@ KBHandler:
 		push 	bx
         push 	ax
 		IN		al, 0x60			; get key event
-		cmp 	al, 0x01			; ESC pressed?
-		jne		.done
+		cmp 	al, 0x01			; check if ESC was pressed
+		jne		D_Key
 		mov		[Quit], AL
 
-.done:	
-		cmp 	al, 0x20			; D key pressed?
-		jne 	t1
+	D_Key:
+		cmp 	al, 0x20			; check if D was pressed
+		jne 	A_Key
 		mov 	bx, [XPosition]
 		cmp 	bx, 312
 		je 		EndHandling			; Reached end of screen
 		inc 	bx
 		mov 	[XPosition], bx
-	t1:	
-		cmp 	al, 0x1E			; A key pressed?
-		jne 	t2
+	A_Key:
+		cmp 	al, 0x1E			; check if A was pressed
+		jne 	Spacebar
 		mov 	bx, [XPosition]
 		cmp 	bx, 1
 		je 		EndHandling		
 		dec 	bx
 		mov 	[XPosition], bx
-	t2:
-		cmp 	al, 0x11			; W key pressed?
-		jne 	t3
-		mov 	bx, [YPosition]
-		cmp 	bx, 1
-		je 		EndHandling		
-		dec 	bx
-		mov 	[YPosition], bx
-	t3:
-		cmp 	al, 0x1F			; S key pressed?
+	Spacebar:
+		cmp 	al, 0x32			; check if spacebar was pressed
 		jne 	EndHandling
-		mov 	bx, [YPosition]
-		cmp 	bx, 192
-		je 		EndHandling
-		inc		bx
-		mov 	[YPosition], bx
+		; TODO: implement shooting with spacebar
 	EndHandling:
         mov 	al, 0x20			; ACK
 		OUT		0x20, al			; send ACK
