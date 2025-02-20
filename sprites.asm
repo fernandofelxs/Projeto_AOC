@@ -1,4 +1,4 @@
-playersprite: 		
+PlayerSprite: 		
         db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh 
         db      02h, 02h, 02h, 02h, 0Ah, 06h, 0ffh, 0ffh 
         db      0ffh, 02h, 02h, 02h, 02h, 0Ah, 06h, 0ffh 

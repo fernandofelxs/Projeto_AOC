@@ -5,30 +5,30 @@ Start:
         CALL	InstallKB
 		CALL	InitVideo
 
-        mov ax, 20
-        mov cx, 20
-        mov [XPosition], ax
-        mov [YPosition], cx
+        mov     ax, 20
+        mov     cx, 20
+        mov     [XPosition], ax
+        mov     [YPosition], cx
 
 .gameLoop:	
         CALL	WaitFrame
 
-        xor si, si
-        CALL    drawbackground
+        xor     si, si
+        CALL    DrawBackground
 
-        mov ax, [XPosition]
-        mov cx, [YPosition]
-        mov bx, playersprite
-        CALL    drawbox
+        mov     ax, [XPosition]
+        mov     cx, [YPosition]
+        mov     bx, PlayerSprite
+        CALL    DrawBox
 
-		CMP	BYTE [Quit], 1
-		JNE	.gameLoop			; loop if counter > 0
+		cmp	    byte [Quit], 1
+		jne	    .gameLoop			; loop if counter > 0
 
 		CALL	RestoreVideo
 		CALL	RestoreKB
 
-		MOV	AX, 0x4C00
-		INT	0x21
+		mov	    ax, 0x4C00
+		INT	    0x21
         ; exit
 
 Quit:		DB	0

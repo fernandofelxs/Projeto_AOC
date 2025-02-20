@@ -11,34 +11,34 @@
 ; (if we're in refresh this part of the procedure does nothing)
 ; Then it waits for the end of refresh.
 WaitFrame:	
-        PUSH	DX
+        push 	dx
 		; port 0x03DA contains VGA status
-		MOV	DX, 0x03DA
+		mov 	dx, 0x03DA
 .waitRetrace:	
-        IN	AL, DX				; read from status port
+        IN 		al, dx				; read from status port
 		; bit 3 will be on if we're in retrace
-		TEST	AL, 0x08			; are we in retrace?
-		JNZ	.waitRetrace
+		test 	al, 0x08			; are we in retrace?
+		jnz		.waitRetrace
 
 .endRefresh:	
-        IN	AL, DX
-		TEST	AL, 0x08			; are we in refresh?
-		JZ	.endRefresh
-		POP DX
+        IN		al, dx
+		test 	al, 0x08			; are we in refresh?
+		jz 		.endRefresh
+		pop 	dx
 		RET
 
 ; NOTE: makes ES point to video memory!
 InitVideo:	; set video mode 0x13
-		MOV	AX, 0x13
-		INT	0x10
-                ; make ES point to the VGA memory
-                MOV	AX, 0xA000
-		MOV	ES, AX
+		mov 	ax, 0x13
+		INT		0x10
+        ; make ES point to the VGA memory
+        mov 	ax, 0xA000
+		mov 	es, ax
 		RET
 
 RestoreVideo:	; return to text mode 0x03
-		MOV	AX, 0x03
-		INT	0x10
+		mov		ax, 0x03
+		INT		0x10
 		RET
 
 ;Example of how to draw a pixel to a position in the framebuffer
@@ -50,9 +50,9 @@ RestoreVideo:	; return to text mode 0x03
 ;- AX -> X position
 ;- CX -> Y position
 ;- BX -> base memory address of the bitmap
-drawbox:
+DrawBox:
 		push    ax              ;Save the X value for later
-		mov     ax, cx          ;Prepare for multiplications
+		mov		ax, cx          ;Prepare for multiplications
 		mov     dx, 320         ;The box is 8x8, the screen width is 320
 		mul     dx
 		mov     cx, ax          ;Retrieve the line into CX
@@ -62,30 +62,30 @@ drawbox:
 		mov     cx, 00
 		mov     ax, 00
 		mov     dx, 00
-drawloop:
+DrawLoop:
 		mov     al, byte [ds:bx]		;Current address in BX
 		cmp     al, 0ffh				;This is transparent pixel, don't draw
-		je      dontdraw
+		je      DontDraw
 		mov     byte [es:si], al        ;Put the pixel into RAM
-dontdraw:
+DontDraw:
 		inc     bx
 		inc     cx
 		inc     dx
 		cmp     dx, 8           ;Sort of modulo
-		je      jumplinedraw    ;Time to increment SI in a more complex way
+		je      JumpLineDraw    ;Time to increment SI in a more complex way
 		inc     si
-continuecomp:
+ContinueComp:
 		cmp     cx, 64        ;Compare CX the max the field will be
-		jne     drawloop        ;Continue
+		jne     DrawLoop        ;Continue
 		ret                     ;Return
-jumplinedraw:
+JumpLineDraw:
 		mov     dx, 00h
 		add     si, 313			;Jump a whole line
-		jmp     continuecomp    ;Continue the routine
+		jmp     ContinueComp    ;Continue the routine
 
-drawbackground:
+DrawBackground:
         mov     byte[es:si], 02ah ; orange color
         inc     si
         cmp     si, 0fa00h ; 0fa00h = 64000
-        jne     drawbackground
+        jne     DrawBackground
         ret
