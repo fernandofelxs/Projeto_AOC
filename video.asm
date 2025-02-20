@@ -51,6 +51,10 @@ RestoreVideo:	; return to text mode 0x03
 ;- CX -> Y position
 ;- BX -> base memory address of the bitmap
 DrawBox:
+		push 	ax
+		push 	bx
+		push 	cx
+		push 	si
 		push    ax              ;Save the X value for later
 		mov		ax, cx          ;Prepare for multiplications
 		mov     dx, 320         ;The box is 8x8, the screen width is 320
@@ -77,6 +81,10 @@ DontDraw:
 ContinueComp:
 		cmp     cx, 64        ;Compare CX the max the field will be
 		jne     DrawLoop        ;Continue
+		pop 	si
+		pop 	cx
+		pop 	bx
+		pop 	ax
 		ret                     ;Return
 JumpLineDraw:
 		mov     dx, 00h
@@ -84,8 +92,10 @@ JumpLineDraw:
 		jmp     ContinueComp    ;Continue the routine
 
 DrawBackground:
+		xor 	si, si
+.DrawBackgroundLoop:
         mov     byte[es:si], 02ah ; orange color
         inc     si
         cmp     si, 0fa00h ; 0fa00h = 64000
-        jne     DrawBackground
+        jne     .DrawBackgroundLoop
         ret

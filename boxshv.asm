@@ -5,21 +5,22 @@ Start:
         CALL	InstallKB
 		CALL	InitVideo
 
-        mov     ax, 156
-        mov     cx, 180
+        mov     ax, 0
+        mov     cx, 190
         mov     [PlayerXPosition], ax
         mov     [PlayerYPosition], cx
+        CALL    InitiateEnemies
 
 .gameLoop:	
         CALL	WaitFrame
-
-        xor     si, si
         CALL    DrawBackground
 
         mov     ax, [PlayerXPosition]
         mov     cx, [PlayerYPosition]
         mov     bx, PlayerSprite
         CALL    DrawBox
+        
+        CALL    DrawEnemies
 
 		cmp	    byte [Quit], 1
 		jne	    .gameLoop			; loop if counter > 0
