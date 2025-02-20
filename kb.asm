@@ -1,7 +1,5 @@
 OldKBHandler:	DW	0
 OldKBSeg:	DW	0
-XPosition: DW 0
-YPosition: DW 0
 
 InstallKB:	
         push	es
@@ -43,19 +41,19 @@ KBHandler:
 	D_Key:
 		cmp 	al, 0x20			; check if D was pressed
 		jne 	A_Key
-		mov 	bx, [XPosition]
+		mov 	bx, [PlayerXPosition]
 		cmp 	bx, 312
-		je 		EndHandling			; Reached end of screen
+		je 		EndHandling			; reached rightmost end of screen
 		inc 	bx
-		mov 	[XPosition], bx
+		mov 	[PlayerXPosition], bx
 	A_Key:
 		cmp 	al, 0x1E			; check if A was pressed
 		jne 	Spacebar
-		mov 	bx, [XPosition]
-		cmp 	bx, 1
-		je 		EndHandling		
+		mov 	bx, [PlayerXPosition]
+		cmp 	bx, 0
+		je 		EndHandling			; reached leftmost end of screen
 		dec 	bx
-		mov 	[XPosition], bx
+		mov 	[PlayerXPosition], bx
 	Spacebar:
 		cmp 	al, 0x32			; check if spacebar was pressed
 		jne 	EndHandling

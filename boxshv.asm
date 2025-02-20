@@ -7,8 +7,8 @@ Start:
 
         mov     ax, 156
         mov     cx, 180
-        mov     [XPosition], ax
-        mov     [YPosition], cx
+        mov     [PlayerXPosition], ax
+        mov     [PlayerYPosition], cx
 
 .gameLoop:	
         CALL	WaitFrame
@@ -16,8 +16,8 @@ Start:
         xor     si, si
         CALL    DrawBackground
 
-        mov     ax, [XPosition]
-        mov     cx, [YPosition]
+        mov     ax, [PlayerXPosition]
+        mov     cx, [PlayerYPosition]
         mov     bx, PlayerSprite
         CALL    DrawBox
 
@@ -36,3 +36,4 @@ Quit:		DB	0
 %include "kb.asm"
 %include "video.asm"
 %include "sprites.asm"
+%include "charpos.asm"
