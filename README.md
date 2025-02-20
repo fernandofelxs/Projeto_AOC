@@ -17,7 +17,8 @@ boxshv.com
 Esse projeto utilizou os seguintes recursos como referência: <br /> 
 ```
 https://github.com/adamsmasher/sokobanDOS/tree/master (Tutorial de criação de jogos em assembly x86-16bits para o MSDos) 
-https://web.archive.org/web/20140702154140/http://www.brackeen.com/vga/index.html
+https://github.com/pilotpirxie/assembler-apps/tree/main (Aplicações simples em assembly x86-16bits)
+https://web.archive.org/web/20140702154140/http://www.brackeen.com/vga/index.html (Informações sobre o modo de vídeo VGA 256-Colors)
 https://github.com/resetreboot/mineassembly (Implementação do jogo "Campo Minado" em assembly x86-16bits para o MSDos) 
 ```
 
