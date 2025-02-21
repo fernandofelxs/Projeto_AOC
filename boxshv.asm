@@ -9,7 +9,7 @@ Start:
         mov     cx, 190
         mov     [PlayerXPosition], ax
         mov     [PlayerYPosition], cx
-        CALL    InitiateEnemies
+        CALL    InitializeEnemies
 
 .gameLoop:	
         CALL	WaitFrame
@@ -20,6 +20,7 @@ Start:
         mov     bx, PlayerSprite
         CALL    DrawBox
 
+        CALL    MoveArrows
         CALL    DrawArrows
         CALL    DrawEnemies
 
