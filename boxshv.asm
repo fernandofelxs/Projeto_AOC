@@ -10,9 +10,12 @@ Start:
         mov     [PlayerXPosition], ax
         mov     [PlayerYPosition], cx
         CALL    InitializeEnemies
+        mov     dx, [Cycles]
 
 .gameLoop:	
+        push    dx
         CALL	WaitFrame
+        pop     dx
         CALL    DrawBackground
 
         mov     ax, [PlayerXPosition]
@@ -20,9 +23,10 @@ Start:
         mov     bx, PlayerSprite
         CALL    DrawBox
 
+        CALL    MoveEnemies
+        CALL    DrawEnemies
         CALL    MoveArrows
         CALL    DrawArrows
-        CALL    DrawEnemies
 
 		cmp	    byte [Quit], 1
 		jne	    .gameLoop			; loop if counter > 0

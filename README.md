@@ -1,7 +1,7 @@
 # Projeto_AOC
 
 ## Introdução
-Esse projeto busca implementar um twin-stick shooter, baseado em jogos como o Smash TV (1990) e o Vampire Survivors (2022), em x86-16bits para o MSDos <br /> 
+Esse projeto busca implementar um shoot-em-up baseado em jogos como Space Invaders para o MSDos de 16 bits <br /> 
 
 Para executar o programa, recomenda-se o uso do DOSBox, disponível em: https://www.dosbox.com/wiki/Releases
 
