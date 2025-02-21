@@ -2,6 +2,9 @@ PlayerXPosition: dw 0
 PlayerYPosition: dw 0
 EnemyX: dw 25 dup(0)
 EnemyY: dw 25 dup(0)
+ArrowX: dw 20 dup(0)
+ArrowY: dw 20 dup(0)
+ArrowNum: dw 1
 
 InitiateEnemies:
         mov si, 0
@@ -22,8 +25,6 @@ DrawEnemies:
         push bx
         push cx
         mov si, 0
-        xor ax, ax
-        xor cx, cx
         mov bx, EnemySprite
 .DrawLoop:
         add si, 2
@@ -37,8 +38,20 @@ DrawEnemies:
         pop ax
         ret
 
-
-
-
-
-
+DrawArrows:
+        push ax
+        push bx
+        push cx
+        mov si, 0
+        mov bx, ArrowSprite
+.DrawLoop2:
+        add si, 2
+        mov ax, [ArrowX+si]
+        mov cx, [ArrowY+si]
+        CALL DrawBox
+        cmp si, 38
+        jl .DrawLoop2
+        pop cx
+        pop bx
+        pop ax
+        ret

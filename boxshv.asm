@@ -5,7 +5,7 @@ Start:
         CALL	InstallKB
 		CALL	InitVideo
 
-        mov     ax, 0
+        mov     ax, 160
         mov     cx, 190
         mov     [PlayerXPosition], ax
         mov     [PlayerYPosition], cx
@@ -19,7 +19,8 @@ Start:
         mov     cx, [PlayerYPosition]
         mov     bx, PlayerSprite
         CALL    DrawBox
-        
+
+        CALL    DrawArrows
         CALL    DrawEnemies
 
 		cmp	    byte [Quit], 1

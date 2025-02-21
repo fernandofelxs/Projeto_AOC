@@ -16,3 +16,12 @@ EnemySprite:
         db      06h, 0ffh, 0ffh, 0ffh, 06h, 06h, 06h, 0ffh
         db      016h, 06h, 06h, 0ffh, 06h, 06h, 06h, 0ffh      
         db      0ffh, 016h, 06h, 06h, 06h, 06h, 0ffh, 0ffh
+ArrowSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 0ffh, 0ffh, 01eh, 01eh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 0ffh, 0ffh, 01eh, 01eh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 0ffh, 0ffh, 01eh, 01eh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 0ffh, 0ffh, 01eh, 01eh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 0ffh, 0ffh, 01eh, 01eh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 0ffh, 0ffh, 01eh, 01eh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
