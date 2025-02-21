@@ -50,7 +50,10 @@ DrawArrows:
         add     si, 2
         mov     ax, [ArrowX+si]
         mov     cx, [ArrowY+si]
+        cmp     cx, 0
+        je     .Continue
         CALL    DrawBox
+.Continue:
         cmp     si, 38
         jl      .DrawLoop2
         pop     cx
