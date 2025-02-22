@@ -34,6 +34,7 @@ KBHandler:
 		push 	cx
 		push 	bx
         push 	ax
+		push 	si
 		IN		al, 0x60			; get key event
 		cmp 	al, 0x01			; check if ESC was pressed
 		jne		D_Key
@@ -83,6 +84,7 @@ KBHandler:
 	EndHandling:
         mov 	al, 0x20			; ACK
 		OUT		0x20, al			; send ACK
+		pop 	si
 		pop 	ax
 		pop 	bx
 		pop 	cx
