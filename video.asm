@@ -10,6 +10,7 @@
 ; First it waits until the end of the current retrace, if we're in one
 ; (if we're in refresh this part of the procedure does nothing)
 ; Then it waits for the end of refresh.
+
 WaitFrame:	
         push 	dx
 		; port 0x03DA contains VGA status
@@ -94,7 +95,7 @@ JumpLineDraw:
 DrawBackground:
 		xor 	si, si
 .DrawBackgroundLoop:
-        mov     byte[es:si], 02ah ; orange color
+        mov     byte[es:si], 0x0ff ; orange color
         inc     si
         cmp     si, 0fa00h ; 0fa00h = 64000
         jne     .DrawBackgroundLoop
