@@ -2,8 +2,8 @@ PlayerXPosition: dw 0
 PlayerYPosition: dw 0
 EnemyX: dw 25 dup(0)
 EnemyY: dw 25 dup(0)
-ArrowX: dw 20 dup(0)
-ArrowY: dw 20 dup(0)
+ArrowX: dw 25 dup(0)
+ArrowY: dw 25 dup(0)
 ArrowNum: dw 1
 Cycles: dw 0
 
