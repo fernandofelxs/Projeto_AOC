@@ -1,7 +1,9 @@
 		; tell NASM we want 16-bit assembly language
 		BITS	16
 		ORG	0x100				; DOS loads us here
+
 Start:		
+        CALL    InitBuffer
         CALL	InstallKB
 		CALL	InitVideo
 
@@ -13,6 +15,9 @@ Start:
         mov     dx, [Cycles]
 
 .gameLoop:	
+        mov     ax, [vscr_seg]
+        mov     es, ax  
+
         push    dx
         CALL	WaitFrame
         pop     dx
@@ -27,6 +32,8 @@ Start:
         CALL    DrawEnemies
         CALL    MoveArrows
         CALL    DrawArrows
+
+        CALL    CopyToScreen
 
 		cmp	    byte [Quit], 1
 		jne	    .gameLoop			; loop if counter > 0
@@ -44,3 +51,4 @@ Quit:		DB	0
 %include "video.asm"
 %include "sprites.asm"
 %include "charpos.asm"
+%include "memory.asm"
