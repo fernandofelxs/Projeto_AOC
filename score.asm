@@ -10,6 +10,8 @@ DrawScore:
         xor     si, si
         mov     ax, 311
         mov     cx, 8
+
+
 .DrawLoop:
         cmp     si, 6
         je      .EndDrawing
@@ -35,6 +37,7 @@ DrawScore:
         je      .DrawEight
         cmp     dl, 9
         je      .DrawNine
+        
         jmp     .EndDrawing     ; should never happen
 .DrawZero:
         inc     si
@@ -91,6 +94,40 @@ DrawScore:
         pop     dx
         pop     cx
         pop     bx
+        pop     ax
+        ret
+
+IncreaseScore:
+        push    ax
+        push    si
+        push    di
+        xor     si, si
+        xor     di, di
+.ScoreLoop1:
+        cmp     byte [ScoreNumbers+si], 9
+        jne      .ScoreLoop2
+        inc     si
+        cmp     si, 6
+        jge     .ScoreLoop2
+        jmp     .ScoreLoop1
+.ScoreLoop2:
+        cmp     di, si
+        jge      .IncrementNumber
+        mov     byte [ScoreNumbers+di], 0
+        inc     di
+        jmp     .ScoreLoop2
+.IncrementNumber:
+        cmp     si, 6
+        je      .MaxScore
+        mov     al, byte [ScoreNumbers+si]
+        inc     al
+        mov     byte [ScoreNumbers+si], al
+        jmp     .EndScoreLoop
+.MaxScore:
+        mov     byte [ScoreNumbers+6], 0 
+.EndScoreLoop:        
+        pop     di
+        pop     si
         pop     ax
         ret
 

@@ -34,6 +34,8 @@ Start:
         CALL    MoveArrows
         CALL    DrawArrows
 
+        CALL    IncreaseScore
+
         CALL    CopyToScreen
 
 		cmp	    byte [Quit], 1
