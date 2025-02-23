@@ -12,6 +12,7 @@
 ; Then it waits for the end of refresh.
 WaitFrame:	
         push 	dx
+		push 	ax
 		; port 0x03DA contains VGA status
 		mov 	dx, 0x03DA
 .waitRetrace:	
@@ -24,6 +25,7 @@ WaitFrame:
         IN		al, dx
 		test 	al, 0x08			; are we in refresh?
 		jz 		.endRefresh
+		pop 	ax
 		pop 	dx
 		RET
 
@@ -66,36 +68,60 @@ DrawBox:
 		mov     cx, 00
 		mov     ax, 00
 		mov     dx, 00
-DrawLoop:
+.DrawLoop:
 		mov     al, byte [ds:bx]		;Current address in BX
 		cmp     al, 0ffh				;This is transparent pixel, don't draw
-		je      DontDraw
+		je      .DontDraw
 		mov     byte [es:si], al        ;Put the pixel into RAM
-DontDraw:
+.DontDraw:
 		inc     bx
 		inc     cx
 		inc     dx
 		cmp     dx, 8           ;Sort of modulo
-		je      JumpLineDraw    ;Time to increment SI in a more complex way
+		je      .JumpLineDraw    ;Time to increment SI in a more complex way
 		inc     si
-ContinueComp:
+.ContinueComp:
 		cmp     cx, 64        ;Compare CX the max the field will be
-		jne     DrawLoop        ;Continue
+		jne     .DrawLoop        ;Continue
 		pop 	si
 		pop 	cx
 		pop 	bx
 		pop 	ax
 		ret                     ;Return
-JumpLineDraw:
+.JumpLineDraw:
 		mov     dx, 00h
 		add     si, 313			;Jump a whole line
-		jmp     ContinueComp    ;Continue the routine
+		jmp     .ContinueComp    ;Continue the routine
 
-DrawBackground:
+;Parameters:
+;AL - Color
+FillBackground:
+		push 	si
 		xor 	si, si
-.DrawBackgroundLoop:
-        mov     byte[es:si], 02ah ; orange color
+.FillBackgroundLoop:
+        mov     byte[es:si], al
         inc     si
         cmp     si, 0fa00h ; 0fa00h = 64000
-        jne     .DrawBackgroundLoop
+        jne     .FillBackgroundLoop
+		pop 	si
         ret
+
+DrawPlayer:
+		push 	ax
+		push 	bx
+		push 	cx
+		mov     ax, [PlayerXPosition]
+        mov     cx, [PlayerYPosition]
+        mov     bx, PlayerSprite
+        CALL    DrawBox
+		pop 	cx
+		pop 	bx
+		pop 	ax
+		ret
+
+RestoreBackBuffer:
+		push 	ax
+		mov     ax, [vscr_seg]
+        mov     es, ax 
+		pop 	ax
+		ret

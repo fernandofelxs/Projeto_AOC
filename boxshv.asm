@@ -15,27 +15,19 @@ Start:
         mov     dx, [Cycles]
 
 .gameLoop:	
-        mov     ax, [vscr_seg]
-        mov     es, ax  
-
-        push    dx
+        CALL    RestoreBackBuffer 
         CALL	WaitFrame
-        pop     dx
-        CALL    DrawBackground
+
+        mov     al, 02ah ; orange color
+        CALL    FillBackground
+
         CALL    DrawScore
-
-        mov     ax, [PlayerXPosition]
-        mov     cx, [PlayerYPosition]
-        mov     bx, PlayerSprite
-        CALL    DrawBox
-
+        CALL    DrawPlayer
         CALL    MoveEnemies
         CALL    DrawEnemies
         CALL    MoveArrows
         CALL    DrawArrows
-
         CALL    IncreaseScore
-
         CALL    CopyToScreen
 
 		cmp	    byte [Quit], 1
@@ -56,3 +48,4 @@ Quit:		DB	0
 %include "charpos.asm"
 %include "memory.asm"
 %include "score.asm"
+%include "gameover.asm"

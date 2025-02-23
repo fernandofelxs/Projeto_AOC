@@ -37,7 +37,7 @@ DrawScore:
         je      .DrawEight
         cmp     dl, 9
         je      .DrawNine
-        
+
         jmp     .EndDrawing     ; should never happen
 .DrawZero:
         inc     si
@@ -130,4 +130,3 @@ IncreaseScore:
         pop     si
         pop     ax
         ret
-
