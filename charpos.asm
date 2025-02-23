@@ -3,8 +3,7 @@ PlayerYPosition: dw 0
 EnemyX: dw 25 dup(0)
 EnemyY: dw 25 dup(10)
 ArrowX: dw 25 dup(0)
-ArrowY: dw 25 dup(0)
-ArrowAct: dw 25 dup(0)
+ArrowY: dw 25 dup(320)
 EnemyAct: dw 25 dup(0)
 ArrowNum: dw 1
 Cycles: dw 0
@@ -61,8 +60,10 @@ DrawArrows:
         add     si, 2
         mov     ax, [ArrowX+si]
         mov     cx, [ArrowY+si]
-        cmp     cx, 0
+        cmp     cx, 4
         jle     .Continue
+        cmp     cx, 320
+        jge     .Continue
         CALL    DrawBox
 .Continue:
         cmp     si, 38
@@ -78,17 +79,20 @@ MoveArrows:
         push    bx
         push    cx
         mov     si, 0
-.LoopThroughArrows:
+
+.nextArrow:
         add     si, 2
+
+.LoopThroughArrows:
         mov     bx, [ArrowY+si]
 
-        cmp bx, 0
-        je .Continue
+        cmp bx, 320
+        je .nextArrow
 
         sub     bx, 5
         mov  [ArrowY+si], bx 
         cmp  si, 48
-        jl  .LoopThroughArrows
+        jl  .nextArrow
 
 .Continue:
         pop     cx
@@ -147,34 +151,34 @@ VerifyBullet:
         mov di, 2
 
 .resetValues:
+        mov di, 2
         cmp si, 48
         jge .Continue
-        
-        mov  ax, [ArrowX+si]
-        mov  bx, [ArrowY+si]
+        mov bx, [ArrowY+si]
 
 .LoopOverEnemies:
+        mov ax, [ArrowX+si]
+
         cmp di, 48 ; max number of enemies
         jge .nextArrow
 
         mov cx, [EnemyX+di]
         mov dx, [EnemyY+di]
 
-        ;cmp ax, cx
-        ;jl .nextEnemy
-
-        ;add cx, 8
-        ;cmp ax, cx
-        ;jg .nextEnemy
+        cmp ax, cx
+        jne .nextEnemy
 
         cmp bx, dx
         jg .nextEnemy
 
-        mov cx, 0
-        mov [EnemyX+di], cx
-        mov [EnemyY+di], cx
+        mov cx, 320
+        mov dx, 0
+        mov [EnemyX+di], dx
+        mov [EnemyY+di], dx
+        mov [ArrowX+si], cx
+        mov [ArrowY+si], cx
 
-        jmp .Continue
+        jmp .nextArrow
 
 .nextArrow:
         add si, 2
