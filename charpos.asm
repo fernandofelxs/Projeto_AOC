@@ -168,6 +168,7 @@ VerifyBullet:
         cmp ax, cx
         jne .nextEnemy
 
+        add dx, 10
         cmp bx, dx
         jg .nextEnemy
 
