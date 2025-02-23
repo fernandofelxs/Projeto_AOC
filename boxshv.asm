@@ -22,6 +22,7 @@ Start:
         CALL	WaitFrame
         pop     dx
         CALL    DrawBackground
+        CALL    DrawScore
 
         mov     ax, [PlayerXPosition]
         mov     cx, [PlayerYPosition]
@@ -52,3 +53,4 @@ Quit:		DB	0
 %include "sprites.asm"
 %include "charpos.asm"
 %include "memory.asm"
+%include "score.asm"
