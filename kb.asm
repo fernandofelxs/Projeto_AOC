@@ -17,7 +17,7 @@ InstallKB:
 		pop 	dx
 		pop 	bx
 		pop 	es
-		RET
+		ret
 
 RestoreKB:	
         push 	dx
@@ -28,7 +28,7 @@ RestoreKB:
 		INT		0x21
 		pop 	ds
 		pop 	dx
-		RET
+		ret
 
 KBHandler:	
 		push 	cx

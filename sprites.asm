@@ -124,3 +124,66 @@ GrassSprite:
         db      02h, 02h, 02h, 02h, 02h, 02h, 02h, 02h
         db      02h, 02h, 02h, 02h, 02h, 02h, 02h, 02h
         db      02h, 02h, 02h, 02h, 02h, 02h, 02h, 02h
+GSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+ASprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+MSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch
+        db      02ch, 02ch, 0ffh, 02ch, 02ch, 0ffh, 02ch, 02ch
+        db      02ch, 02ch, 0ffh, 02ch, 02ch, 0ffh, 02ch, 02ch
+        db      02ch, 02ch, 0ffh, 02ch, 02ch, 0ffh, 02ch, 02ch
+        db      02ch, 02ch, 0ffh, 02ch, 02ch, 0ffh, 02ch, 02ch
+        db      02ch, 02ch, 0ffh, 02ch, 02ch, 0ffh, 02ch, 02ch
+        db      02ch, 02ch, 0ffh, 02ch, 02ch, 0ffh, 02ch, 02ch
+ESprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+OSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+VSprite:        
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh
+        db      0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh
+RSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh

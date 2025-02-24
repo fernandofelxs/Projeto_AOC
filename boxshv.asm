@@ -19,6 +19,7 @@ Start:
         mov     al, 02ah ; orange color
         CALL    FillBackground
 
+        CALL    CheckGameOver
         CALL    MoveEnemies
         CALL    DrawEnemies
         CALL    DrawBackground
@@ -33,6 +34,7 @@ Start:
 		cmp	    byte [Quit], 1
 		jne	    .gameLoop			; loop if counter > 0
 
+EndGame:
 		CALL	RestoreVideo
 		CALL	RestoreKB
 
