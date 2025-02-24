@@ -1,7 +1,9 @@
 # Projeto_AOC
 
 ## Introdução
-Esse projeto busca implementar um shoot-em-up baseado em jogos como Space Invaders para o MSDos de 16 bits <br /> 
+![alt text](https://i.imgur.com/NUMF6R3.png)
+
+Esse projeto buscou implementar um shoot-em-up baseado em jogos como Space Invaders para o MSDos de 16 bits <br /> 
 
 Para executar o programa, recomenda-se o uso do DOSBox, disponível em: https://www.dosbox.com/wiki/Releases
 
