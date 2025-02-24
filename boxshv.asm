@@ -25,10 +25,10 @@ Start:
     CALL    DrawBox
 
     call VerifyBullet
-    CALL    MoveEnemies
-    CALL    DrawEnemies
-    CALL    MoveArrows
-    CALL    DrawArrows
+    CALL MoveEnemies
+    CALL DrawEnemies
+    CALL MoveArrows
+    CALL DrawArrows
 
 		;mov 	ax, 05h
 

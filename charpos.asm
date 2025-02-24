@@ -7,6 +7,7 @@ ArrowY: dw 25 dup(320)
 EnemyAct: dw 25 dup(0)
 ArrowNum: dw 1
 Cycles: dw 0
+CycleCounter: dw 0
 
 ; clobbers si
 InitializeEnemies:
@@ -16,12 +17,33 @@ InitializeEnemies:
         mov     si, 0
         mov     ax, 64
         mov     bx, 8
+
 .LoopOverEnemies:
         add     si, 2
+        mov     cx, [CycleCounter]
+        inc     cx
+        mov     [CycleCounter], cx
+
+        cmp     cx, 5
+        je      .noSpawn
+        jne     .spawn
+
+.noSpawn:
+        xor cx, cx
+        mov [EnemyX+si], cx
+        add     ax, bx
+        mov     dx, bx
+        mov     [EnemyY+si], cx
+        mov     [CycleCounter], cx
+        jmp .updateInitialPos
+
+.spawn:
         mov     [EnemyX+si], ax
         add     ax, bx
         mov     dx, bx
         mov     [EnemyY+si], dx
+
+.updateInitialPos:
         cmp     si, 48 ; max number of enemies
         jl      .LoopOverEnemies
         pop     dx
