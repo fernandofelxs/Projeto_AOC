@@ -10,8 +10,17 @@ Mova os conteúdos desse repositório para C:\Assembly, e então, dentro do DOSB
 ```
 mount c C:\Assembly 
 C: 
+cycles = 6000
 boxshv.com 
 ```
+
+## Controles
+A - Move para a esquerda <br />
+D - Move para a direita  <br />
+Spacebar - Atira    <br />
+Esc - Sai do jogo   <br />
+
+
 
 ## Desenvolvimento
 Esse projeto utilizou os seguintes recursos como referência: <br /> 
