@@ -19,6 +19,7 @@ Start:
         mov     al, 02ah ; orange color
         CALL    FillBackground
 
+
         CALL    DrawScore
         CALL    DrawPlayer
         CALL    VerifyBullet
@@ -26,6 +27,7 @@ Start:
         CALL    DrawEnemies
         CALL    MoveArrows
         CALL    DrawArrows
+        CALL    SpawnEnemies
         CALL    CopyToScreen
 
 		cmp	    byte [Quit], 1
