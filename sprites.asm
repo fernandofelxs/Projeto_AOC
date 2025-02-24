@@ -25,3 +25,93 @@ ArrowSprite:
         db      0ffh, 0ffh, 0ffh, 01eh, 01eh, 0ffh, 0ffh, 0ffh
         db      0ffh, 0ffh, 0ffh, 01eh, 01eh, 0ffh, 0ffh, 0ffh
         db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+ZeroSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+OneSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+TwoSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+ThreeSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+FourSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+FiveSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+SixSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+SevenSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+EightSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+NineSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh

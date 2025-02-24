@@ -169,20 +169,20 @@ VerifyBullet:
         push cx
         push dx
 
-        mov si, 2
-        mov di, 2
+        mov si, 0
+        mov di, 0
 
 .resetValues:
-        mov di, 2
+        mov di, 0
         cmp si, 48
-        jge .Continue
+        jg .Continue
         mov bx, [ArrowY+si]
 
 .LoopOverEnemies:
         mov ax, [ArrowX+si]
 
         cmp di, 48 ; max number of enemies
-        jge .nextArrow
+        jg .nextArrow
 
         mov cx, [EnemyX+di]
         mov dx, [EnemyY+di]
@@ -218,4 +218,13 @@ VerifyBullet:
         pop     ax
         pop si
         pop di
+        ret
+
+CheckGameOver:
+        push bx
+        mov si, 0
+
+.LoopOverEnemies:
+        mov     [EnemyY+si], dx
+        pop     bx
         ret

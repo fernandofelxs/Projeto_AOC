@@ -34,31 +34,32 @@ KBHandler:
 		push 	cx
 		push 	bx
         push 	ax
+		push 	si
 		IN		al, 0x60			; get key event
 		cmp 	al, 0x01			; check if ESC was pressed
-		jne		D_Key
+		jne		.D_Key
 		mov		[Quit], AL
-	D_Key:
+	.D_Key:
 		cmp 	al, 0x20			; check if D was pressed
-		jne 	A_Key
+		jne 	.A_Key
 		mov 	bx, [PlayerXPosition]
 		cmp 	bx, 304
-		je 		EndHandling			; reached rightmost end of screen
+		je 		.EndHandling			; reached rightmost end of screen
 		add 	bx, 8
 		mov 	[PlayerXPosition], bx
-		jmp 	EndHandling
-	A_Key:
+		jmp 	.EndHandling
+	.A_Key:
 		cmp 	al, 0x1E			; check if A was pressed
-		jne 	Spacebar
+		jne 	.Spacebar
 		mov 	bx, [PlayerXPosition]
 		cmp 	bx, 8
-		je 		EndHandling			; reached leftmost end of screen
+		je 		.EndHandling			; reached leftmost end of screen
 		sub 	bx, 8
 		mov 	[PlayerXPosition], bx
-		jmp 	EndHandling
-	Spacebar:
+		jmp 	.EndHandling
+	.Spacebar:
 		cmp 	al, 0x39			; check if spacebar was pressed
-		jne 	EndHandling
+		jne 	.EndHandling
 		mov 	si, [ArrowNum]
 		shl 	si, 1
 		cmp 	si, 38
@@ -75,14 +76,15 @@ KBHandler:
 		jl 		.IncrementArrow
 		xor 	ax, ax
 		mov 	[ArrowNum], ax
-		jmp 	EndHandling
+		jmp 	.EndHandling
 	.IncrementArrow:
 		mov 	ax, [ArrowNum]
 		inc 	ax
 		mov 	[ArrowNum], ax
-	EndHandling:
+	.EndHandling:
         mov 	al, 0x20			; ACK
 		OUT		0x20, al			; send ACK
+		pop 	si
 		pop 	ax
 		pop 	bx
 		pop 	cx

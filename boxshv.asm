@@ -3,6 +3,7 @@ BITS	16
 ORG	0x100				; DOS loads us here
 
 Start:		
+    CALL    InitBuffer
     CALL	InstallKB
 		CALL	InitVideo
 
@@ -14,23 +15,21 @@ Start:
     mov     dx, [Cycles]
 
 .gameLoop:	
-    push    dx
+    CALL    RestoreBackBuffer 
     CALL	WaitFrame
-    pop     dx
-    CALL    DrawBackground
 
-    mov     ax, [PlayerXPosition]
-    mov     cx, [PlayerYPosition]
-    mov     bx, PlayerSprite
-    CALL    DrawBox
+    mov     al, 02ah ; orange color
+    CALL    FillBackground
 
-    call VerifyBullet
-    CALL MoveEnemies
-    CALL DrawEnemies
-    CALL MoveArrows
-    CALL DrawArrows
-
-		;mov 	ax, 05h
+    CALL    DrawScore
+    CALL    DrawPlayer
+    call    VerifyBullet
+    CALL    MoveEnemies
+    CALL    DrawEnemies
+    CALL    MoveArrows
+    CALL    DrawArrows
+    CALL    IncreaseScore
+    CALL    CopyToScreen
 
 		cmp	    byte [Quit], 1
 		jne	    .gameLoop			; loop if counter > 0
@@ -51,3 +50,6 @@ Quit:		DB	0
 %include "video.asm"
 %include "sprites.asm"
 %include "charpos.asm"
+%include "memory.asm"
+%include "score.asm"
+%include "gameover.asm"

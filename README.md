@@ -33,4 +33,10 @@ Para construir o arquivo boxshv, use o comando: <br />
 nasm boxshv.asm -o boxshv.com
 ```
 
+A implementação do Back Buffer foi feita de acordo com o seguinte post do stack overflow:
+```
+https://stackoverflow.com/questions/6560343/double-buffer-video-in-assembler
+```
+
+
 Para entrar em tela cheia no DOSBox, aperte Alt+Enter
