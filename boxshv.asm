@@ -7,27 +7,25 @@ Start:
         CALL	InstallKB
 		CALL	InitVideo
 
-        mov     ax, 160
-        mov     cx, 190
-        mov     [PlayerXPosition], ax
-        mov     [PlayerYPosition], cx
+        CALL    InitializePlayer
         CALL    InitializeEnemies
-        mov     dx, [Cycles]
 
 .gameLoop:	
         CALL    RestoreBackBuffer 
         CALL	WaitFrame
+
+        CALL    UpdateCycles
 
         mov     al, 02ah ; orange color
         CALL    FillBackground
 
         CALL    DrawScore
         CALL    DrawPlayer
+        CALL    VerifyBullet
         CALL    MoveEnemies
         CALL    DrawEnemies
         CALL    MoveArrows
         CALL    DrawArrows
-        CALL    IncreaseScore
         CALL    CopyToScreen
 
 		cmp	    byte [Quit], 1

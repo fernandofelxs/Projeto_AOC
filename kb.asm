@@ -43,7 +43,7 @@ KBHandler:
 		cmp 	al, 0x20			; check if D was pressed
 		jne 	.A_Key
 		mov 	bx, [PlayerXPosition]
-		cmp 	bx, 304
+		cmp 	bx, 248
 		je 		.EndHandling			; reached rightmost end of screen
 		add 	bx, 8
 		mov 	[PlayerXPosition], bx
@@ -52,7 +52,7 @@ KBHandler:
 		cmp 	al, 0x1E			; check if A was pressed
 		jne 	.Spacebar
 		mov 	bx, [PlayerXPosition]
-		cmp 	bx, 8
+		cmp 	bx, 64
 		je 		.EndHandling			; reached leftmost end of screen
 		sub 	bx, 8
 		mov 	[PlayerXPosition], bx
