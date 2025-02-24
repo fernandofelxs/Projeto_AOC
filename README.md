@@ -25,7 +25,10 @@ https://github.com/resetreboot/mineassembly (Implementação do jogo "Campo Mina
 Resolução da tela: 320x200 <br /> 
 
 Palheta de cores para o int 13h: https://imgur.com/a/vga-256-color-chart-int13h-gMoQE5T <br /> 
-Asset Pack utilizado: https://ivoryred.itch.io/pico-8-character-sprite <br /> 
+Sprites Utilizados: <br />
+```
+https://ivoryred.itch.io/pico-8-character-sprite 
+```
 
 
 Para construir o arquivo boxshv, use o comando: <br /> 

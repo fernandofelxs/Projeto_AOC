@@ -115,3 +115,12 @@ NineSprite:
         db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
         db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
         db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+GrassSprite:
+        db      02h, 02h, 02h, 02h, 02h, 02h, 02h, 02h
+        db      02h, 02h, 02h, 02h, 02h, 02h, 02h, 02h 
+        db      02h, 02h, 02h, 02h, 02h, 02h, 02h, 02h
+        db      02h, 02h, 02h, 02h, 02h, 02h, 02h, 02h
+        db      02h, 02h, 02h, 02h, 02h, 02h, 02h, 02h
+        db      02h, 02h, 02h, 02h, 02h, 02h, 02h, 02h
+        db      02h, 02h, 02h, 02h, 02h, 02h, 02h, 02h
+        db      02h, 02h, 02h, 02h, 02h, 02h, 02h, 02h

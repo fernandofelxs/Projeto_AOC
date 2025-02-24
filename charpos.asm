@@ -54,8 +54,10 @@ InitializeEnemies:
         pop     bx
         pop     ax
 
-        mov     word [EnemyX+50], 300
-        mov     word [EnemyY+50], 190
+        ; bugged enemy, ignore
+        mov     word [EnemyX+50], 310
+        mov     word [EnemyY+50], 190 
+
         ret
 
 SpawnEnemies:
@@ -125,7 +127,7 @@ DrawEnemies:
         push    ax
         push    bx
         push    cx
-        mov     si, 0
+        xor     si, si
         mov     bx, EnemySprite
 .DrawLoop:
         add     si, 2
@@ -287,6 +289,6 @@ VerifyBullet:
         pop     cx
         pop     bx
         pop     ax
-        pop     si
         pop     di
+        pop     si
         ret

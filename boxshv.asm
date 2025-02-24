@@ -19,12 +19,12 @@ Start:
         mov     al, 02ah ; orange color
         CALL    FillBackground
 
-
+        CALL    MoveEnemies
+        CALL    DrawEnemies
+        CALL    DrawBackground
         CALL    DrawScore
         CALL    DrawPlayer
         CALL    VerifyBullet
-        CALL    MoveEnemies
-        CALL    DrawEnemies
         CALL    MoveArrows
         CALL    DrawArrows
         CALL    SpawnEnemies

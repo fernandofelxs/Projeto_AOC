@@ -106,6 +106,51 @@ FillBackground:
 		pop 	si
         ret
 
+DrawBackground:
+		push 	ax
+		push 	bx
+		push 	cx
+		push 	si
+		xor 	cx, cx
+
+.Rectangle1:
+		xor 	ax, ax
+		xor 	cx, cx
+		mov 	bx, GrassSprite
+.R1Loop1:
+		cmp 	ax, 64
+		je 		.R1Loop2
+		CALL 	DrawBox
+		add 	ax, 8
+		jmp 	.R1Loop1
+.R1Loop2:
+		cmp 	cx, 191
+		jge 	.Rectangle2
+		xor 	ax, ax
+		add 	cx, 8
+		jmp 	.R1Loop1
+.Rectangle2:
+		mov 	ax, 256
+		xor 	cx, cx
+.R2Loop1:
+		cmp 	ax, 320
+		jge 	.R2Loop2
+		CALL 	DrawBox
+		add 	ax, 8
+		jmp 	.R2Loop1
+.R2Loop2:
+		cmp 	cx, 191
+		jge 	.End
+		mov 	ax, 256
+		add 	cx, 8
+		jmp 	.R2Loop1
+.End:
+		pop 	si
+		pop 	cx
+		pop 	bx
+		pop 	ax
+		ret
+
 DrawPlayer:
 		push 	ax
 		push 	bx
