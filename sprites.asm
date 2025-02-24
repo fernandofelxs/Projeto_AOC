@@ -115,3 +115,12 @@ NineSprite:
         db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 02ch, 02ch, 0ffh
         db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
         db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+GSprite:
+        db      0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 0ffh, 0ffh, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 0ffh, 0ffh, 02ch, 02ch, 0ffh
+        db      0ffh, 02ch, 02ch, 02ch, 02ch, 02ch, 02ch, 0ffh

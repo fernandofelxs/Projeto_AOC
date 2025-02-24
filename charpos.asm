@@ -219,12 +219,3 @@ VerifyBullet:
         pop si
         pop di
         ret
-
-CheckGameOver:
-        push bx
-        mov si, 0
-
-.LoopOverEnemies:
-        mov     [EnemyY+si], dx
-        pop     bx
-        ret

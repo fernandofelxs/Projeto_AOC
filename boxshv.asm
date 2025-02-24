@@ -3,7 +3,7 @@ BITS	16
 ORG	0x100				; DOS loads us here
 
 Start:		
-    CALL    InitBuffer
+    CALL  InitBuffer
     CALL	InstallKB
 		CALL	InitVideo
 
@@ -15,7 +15,7 @@ Start:
     mov     dx, [Cycles]
 
 .gameLoop:	
-    CALL    RestoreBackBuffer 
+    CALL  RestoreBackBuffer 
     CALL	WaitFrame
 
     mov     al, 02ah ; orange color
@@ -30,26 +30,49 @@ Start:
     CALL    DrawArrows
     CALL    IncreaseScore
     CALL    CopyToScreen
-
+    call    CheckGameOver
 		cmp	    byte [Quit], 1
 		jne	    .gameLoop			; loop if counter > 0
 
-    mov  ah, 05h
-    int  10h
+    mov     ah, 05h
+    int     10h
 
 		CALL	RestoreVideo
 		CALL	RestoreKB
 
 		mov	    ax, 0x4C00
 		INT	    0x21
-        ; exit
+; exit
 
 Quit:		DB	0
+GameOverFlag:		DB	0
 
+CheckGameOver:
+        push bx
+        mov si, 0
+
+.LoopOverEnemies:
+        add     si, 2
+        cmp     si, 48
+        jge     .done
+        mov     bx, [EnemyY+si]
+        mov     ax, [PlayerYPosition]
+        sub     ax, bx
+        cmp     ax, 10
+        jge     .LoopOverEnemies
+	      ;mov	    byte [Quit], 1
+	      mov	    byte [GameOverFlag], 1
+        call GameOverLoop
+        pop     bx
+
+.done:
+    pop     bx
+    ret
+
+%include "gameover.asm"
 %include "kb.asm"
 %include "video.asm"
 %include "sprites.asm"
 %include "charpos.asm"
 %include "memory.asm"
 %include "score.asm"
-%include "gameover.asm"
